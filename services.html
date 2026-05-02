@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Tevez Multimedia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0a14;
+            --darker-bg: #05050a;
+            --card-bg: rgba(20, 20, 35, 0.7);
+            --accent-cyan: #00ffff;
+            --accent-magenta: #ff00ff;
+            --accent-gold: #ffd700;
+            --text-light: #f0f0f0;
+            --text-gray: #b0b0b0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 20%),
+                        var(--darker-bg);
+            z-index: -2;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin: 0;
+            background: linear-gradient(45deg, #008000, #00cc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            margin: 0;
+            background: linear-gradient(45deg, #008000, #00cc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            margin: 0;
+            color: #ff0000;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-cyan);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-gray);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 255, 255, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .order-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .order-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--darker-bg);
+        }
+
+        /* Service Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--darker-bg);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--accent-cyan);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--accent-cyan);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(30, 30, 50, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .file-upload {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .file-upload i {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta));
+            color: var(--darker-bg);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-cyan);
+        }
+
+        .footer-column p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-cyan);
+            color: var(--darker-bg);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--darker-bg);
+                width: 100%;
+                text-align: center;
+                transition: var(--transition);
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo-svg {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text h2 {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-container">
+                <div class="logo-svg">
+                    <svg viewBox="0 0 300 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Central TM Circle -->
+                        <rect x="75" y="75" width="150" height="150" fill="#008000" />
+                        <circle cx="150" cy="150" r="60" stroke="#fff" stroke-width="4" fill="none" />
+                        <text x="150" y="150" font-size="60" font-family="Arial, sans-serif" text-anchor="middle" alignment-baseline="middle" fill="#fff">TM</text>
+
+                        <!-- Top-left: Pen -->
+                        <rect x="0" y="0" width="75" height="75" fill="#008000" />
+                        <path d="M20,30 L50,30 C50,30 50,30 50,30 Q50,30 50,30 L50,30 Z" stroke="#fff" stroke-width="2" fill="none" />
+                        <path d="M20,30 L50,30 C50,30 50,30 50,30 Q50,30 50,30 L50,30 Z" stroke="#fff" stroke-width="2" fill="none" />
+
+                        <!-- Top-right: Printer -->
+                        <rect x="225" y="0" width="75" height="75" fill="#008000" />
+                        <path d="M250,20 H275 V50 H250 Z M250,60 H275 V90 H250 Z M250,100 H275 V130 H250 Z" stroke="#fff" stroke-width="2" fill="none" />
+
+                        <!-- Bottom-left: Camera -->
+                        <rect x="0" y="150" width="75" height="75" fill="#008000" />
+                        <path d="M20,170 L50,170 C50,170 50,170 50,170 Q50,170 50,170 L50,170 Z" stroke="#fff" stroke-width="2" fill="none" />
+                        <circle cx="35" cy="170" r="10" stroke="#fff" stroke-width="2" fill="none" />
+
+                        <!-- Bottom-right: Video Camera -->
+                        <rect x="225" y="150" width="75" height="75" fill="#FF0000" />
+                        <path d="M250,170 L275,170 C275,170 275,170 275,170 Q275,170 275,170 L275,170 Z" stroke="#fff" stroke-width="2" fill="none" />
+                        <circle cx="260" cy="170" r="10" stroke="#fff" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>TEVEZ</h1>
+                    <h2>MULTIMEDIA</h2>
+                    <p>Your Creative Experts</p>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Creative Services</h1>
+            <p>Professional solutions tailored to your unique requirements</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" id="service1">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Website Creation & Redesign</h3>
+                    <p>Modern, responsive websites that captivate your audience and drive results</p>
+                    <button class="order-btn" onclick="openModal(1)">Order Now</button>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card" id="service2">
+                    <div class="service-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>Travel & Event Ticket Booking</h3>
+                    <p>Seamless assistance with travel arrangements and event ticket procurement</p>
+                    <button class="order-btn" onclick="openModal(2)">Order Now</button>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" id="service3">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Premium Logo & Brand Identity</h3>
+                    <p>Distinctive branding that represents your business values and vision</p>
+                    <button class="order-btn" onclick="openModal(3)">Order Now</button>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" id="service4">
+                    <div class="service-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Custom Digital Invitations</h3>
+                    <p>Elegant digital invitations for weddings, birthdays, naming ceremonies, and corporate events</p>
+                    <button class="order-btn" onclick="openModal(4)">Order Now</button>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" id="service5">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Professional Document Design</h3>
+                    <p>Polished CVs, brochures, flyers, and certificates that make a lasting impression</p>
+                    <button class="order-btn" onclick="openModal(5)">Order Now</button>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card" id="service6">
+                    <div class="service-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3>Photo Editing & Retouching</h3>
+                    <p>Professional enhancements, background changes, and creative filters for your images</p>
+                    <button class="order-btn" onclick="openModal(6)">Order Now</button>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card" id="service7">
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3>Social Media Content Creation</h3>
+                    <p>Engaging posts, banners, and ads that boost your social media presence</p>
+                    <button class="order-btn" onclick="openModal(7)">Order Now</button>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card" id="service8">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Custom Merchandise Design</h3>
+                    <p>Unique designs for t-shirts, mugs, stickers, and promotional materials</p>
+                    <button class="order-btn" onclick="openModal(8)">Order Now</button>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="service-card" id="service9">
+                    <div class="service-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Event Photo Manipulations</h3>
+                    <p>Creative edits and stage backgrounds for memorable events</p>
+                    <button class="order-btn" onclick="openModal(9)">Order Now</button>
+                </div>
+                
+                <!-- Service 10 -->
+                <div class="service-card" id="service10">
+                    <div class="service-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Mockup Creations</h3>
+                    <p>Realistic product, billboard, and packaging mockups for your designs</p>
+                    <button class="order-btn" onclick="openModal(10)">Order Now</button>
+                </div>
+                
+                <!-- Service 11 -->
+                <div class="service-card" id="service11">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Digital Art & Illustration</h3>
+                    <p>Custom illustrations and digital artwork for any purpose</p>
+                    <button class="order-btn" onclick="openModal(11)">Order Now</button>
+                </div>
+                
+                <!-- Service 12 -->
+                <div class="service-card" id="service12">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Editing & Motion Graphics</h3>
+                    <p>Professional video editing and animated graphics for impactful storytelling</p>
+                    <button class="order-btn" onclick="openModal(12)">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Order Service</h2>
+                <p id="modalDescription">Please fill in the details below</p>
+            </div>
+            <form id="serviceForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number *</label>
+                    <input type="tel" id="whatsapp" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email (optional if WhatsApp provided)</label>
+                    <input type="email" id="email" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="deadline">Delivery Deadline *</label>
+                    <input type="date" id="deadline" class="form-control" required>
+                </div>
+                
+                <div class="form-group" id="fileUploadSection" style="display: none;">
+                    <label>Upload Files (Images, PDFs, ZIP - Max 10MB each)</label>
+                    <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload files</p>
+                        <input type="file" id="fileInput" multiple style="display: none;" accept=".jpg,.jpeg,.png,.pdf,.zip">
+                    </div>
+                    <div id="fileList"></div>
+                </div>
+                
+                <div class="form-group" id="textInputSection" style="display: none;">
+                    <label for="serviceDetails">Service Details *</label>
+                    <textarea id="serviceDetails" class="form-control" rows="4" placeholder="Please provide detailed information about your requirements"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Additional Notes (Optional)</label>
+                    <textarea id="notes" class="form-control" rows="2" placeholder="Any special requests or information"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tevez Multimedia</h3>
+                    <p>Transforming ideas into stunning digital experiences with creative excellence and technical precision.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#service1">Web Design</a></li>
+                        <li><a href="#service3">Logo Design</a></li>
+                        <li><a href="#service7">Social Media</a></li>
+                        <li><a href="#service12">Video Editing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Tamale, Ghana</p>
+                    <p><i class="fas fa-phone"></i> +233 24 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@tevezmultimedia.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Tevez Multimedia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Modal functionality
+        let currentServiceId = 0;
+        const serviceTitles = [
+            "", // 0 index not used
+            "Website Creation & Redesign",
+            "Travel & Event Ticket Booking",
+            "Premium Logo & Brand Identity",
+            "Custom Digital Invitations",
+            "Professional Document Design",
+            "Photo Editing & Retouching",
+            "Social Media Content Creation",
+            "Custom Merchandise Design",
+            "Event Photo Manipulations",
+            "Mockup Creations",
+            "Digital Art & Illustration",
+            "Video Editing & Motion Graphics"
+        ];
+
+        function openModal(serviceId) {
+            currentServiceId = serviceId;
+            document.getElementById('modalTitle').textContent = `Order: ${serviceTitles[serviceId]}`;
+            document.getElementById('modalDescription').textContent = `Fill in the details for ${serviceTitles[serviceId]}`;
+            
+            // Reset form
+            document.getElementById('serviceForm').reset();           
+            document.getElementById('fileList').innerHTML = '';
+            
+            // Show appropriate fields based on service
+            if ([6, 7, 8, 9, 10, 11].includes(serviceId)) {
+                document.getElementById('fileUploadSection').style.display = 'block';
+                document.getElementById('textInputSection').style.display = 'none';
+            } else {
+                document.getElementById('fileUploadSection').style.display = 'none';
+                document.getElementById('textInputSection').style.display = 'block';
+            }
+            
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // File upload preview
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+            
+            for (let i = 0; i < this.files.length; i++) {
+                const file = this.files[i];
+                const fileItem = document.createElement('div');
+                fileItem.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                fileItem.style.marginTop = '10px';
+                fileItem.style.padding = '10px';
+                fileItem.style.background = 'rgba(30, 30, 50, 0.5)';
+                fileItem.style.borderRadius = '5px';
+                fileList.appendChild(fileItem);
+            }
+        });
+
+        // Form submission
+        document.getElementById('serviceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, this would send data to the server
+            // For this demo, we'll just show an alert
+            alert(`Order submitted for ${serviceTitles[currentServiceId]}! In a real implementation, this would redirect to Paystack payment.`);
+            closeModal();
+        });
+
+        // Simple particle effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            document.getElementById('particles-js').appendChild(canvas);
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
+                    this.color = Math.random() > 0.5 ? 'rgba(0, 255, 255, 0.7)' : 'rgba(255, 0, 255, 0.7)';
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                    if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+                }
+                
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            function init() {
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            init();
+            animate();
+            
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+    </script>
+</body>
+</html>
